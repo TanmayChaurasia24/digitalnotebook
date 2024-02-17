@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/digitalnotebook/static/css/main.dead67f8.css",
+    "main.js": "/digitalnotebook/static/js/main.05ce98b6.js",
+    "static/js/787.900821ce.chunk.js": "/digitalnotebook/static/js/787.900821ce.chunk.js",
+    "static/media/home-hero.webp": "/digitalnotebook/static/media/home-hero.7c9ab516f5380eb81a80.webp",
+    "index.html": "/digitalnotebook/index.html",
+    "main.dead67f8.css.map": "/digitalnotebook/static/css/main.dead67f8.css.map",
+    "main.05ce98b6.js.map": "/digitalnotebook/static/js/main.05ce98b6.js.map",
+    "787.900821ce.chunk.js.map": "/digitalnotebook/static/js/787.900821ce.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dead67f8.css",
+    "static/js/main.05ce98b6.js"
+  ]
+}
