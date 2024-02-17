@@ -4,8 +4,9 @@ import Noteitem from './Noteitem';
 import AddNote from './AddNote';
 import { useNavigate } from 'react-router-dom';
 
-const Notes = () => {
+const Notes = (props) => {
     const context = useContext(noteContext);
+    const {mode,togglemode} = props;
     const history = useNavigate();
     const { notes, getNotes, editNote } = context;
     const ref = useRef(null);
@@ -37,11 +38,11 @@ const Notes = () => {
 
     return (
         <>
-            <AddNote />
+            <AddNote mode={mode}/>
             <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
             </button>
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade"  id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -51,15 +52,15 @@ const Notes = () => {
                         <div className="modal-body">
                             <form className="my-3">
                                 <div className="mb-3">
-                                    <label htmlFor="title" className="form-label">Title</label>
+                                    <label htmlFor="title" className={`form-lable`}>Title</label>
                                     <input type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} required />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="description" className="form-label">Description</label>
+                                    <label htmlFor="description" className={`form-lable`}>Description</label>
                                     <input type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="tag" className="form-label">Tag</label>
+                                    <label htmlFor="tag" className={`form-lable`}>Tag</label>
                                     <input type="text" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} />
                                 </div>
                             </form>
@@ -72,13 +73,13 @@ const Notes = () => {
                 </div>
             </div>
 
-            <div className="row my-3">
-                <h2>Your Notes</h2>
+            <div className={`row my-3`}>
+                <h2 className={`text-${mode === 'dark'?'light':'dark'}`}>Your Notes</h2>
                 <div className="container mx-2">
                     {notes.length === 0 && 'No notes to display'}
                 </div>
                 {notes.map((note) => {
-                    return <Noteitem key={note._id} updateNote={updateNote} note={note} />
+                    return <Noteitem key={note._id} updateNote={updateNote} note={note} mode={mode} togglemode={togglemode}/>
                 })}
             </div>
         </>

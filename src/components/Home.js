@@ -1,12 +1,12 @@
 import React from 'react'
 import Notes from './Notes'
 
-const Home = () => {
+const Home = ({mode,togglemode}) => {
 
 
   return (
       <>
-      <Notes></Notes>
+      <Notes mode={mode} togglemode={togglemode}></Notes>
     </>
   )
 }

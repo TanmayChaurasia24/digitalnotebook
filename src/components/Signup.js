@@ -2,8 +2,9 @@ import { useState } from 'react';
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = (props) => {
     const [credentials, setCredentials] = useState({ name:"",email: "", password: "",cpassword: "" });
+    const {mode} = props;
     let navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,9 +37,10 @@ const Signup = () => {
     }
     return (
         <div className="container">
+            <h1 className={`text-center my-5 text-${mode === 'dark' ? 'light' : 'dark'}`}>Sign Up</h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label htmlfor="name" className="form-label">
+                    <label htmlfor="name" className={`text-${mode === 'dark' ? 'light' : 'dark'}`}>
                         Name
                     </label>
                     <input
@@ -51,7 +53,7 @@ const Signup = () => {
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlfor="email" className="form-label">
+                    <label htmlfor="email" className={`text-${mode === 'dark' ? 'light' : 'dark'}`}>
                         Email address
                     </label>
                     <input
@@ -65,7 +67,7 @@ const Signup = () => {
 
                 </div>
                 <div className="mb-3">
-                    <label htmlfor="password" className="form-label">
+                    <label htmlfor="password" className={`text-${mode === 'dark' ? 'light' : 'dark'}`}>
                         Password
                     </label>
                     <input
@@ -77,7 +79,7 @@ const Signup = () => {
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlfor="cpassword" className="form-label">
+                    <label htmlfor="cpassword" className={`text-${mode === 'dark' ? 'light' : 'dark'}`}>
                         Confirm Password
                     </label>
                     <input
